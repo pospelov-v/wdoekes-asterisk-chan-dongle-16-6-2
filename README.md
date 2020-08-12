@@ -3,7 +3,7 @@
 Готовый собраный мною модуль chan-dongle для asterisk16 с репозитория https://github.com/wdoekes/asterisk-chan-dongle
 
 Сборка производилась вот так:
-<code>
+<pre>
 rm /usr/lib64/asterisk/modules/chan_dongle.so
 mkdir -p /root/wdoekes-asterisk-chan-dongle/
 cd /root/wdoekes-asterisk-chan-dongle/
@@ -21,11 +21,11 @@ cd asterisk-chan-dongle
 ./configure --with-astversion=16.6.2 # Заменить на свою версию астериск
 make
 make install
-</code>
+</pre>
 
 
 Установка:
-<code>
+<pre>
 nano /etc/udev/rules.d/92-dongle.rules
 KERNEL=="ttyUSB*", MODE="0666", OWNER="asterisk", GROUP="dialout"
 
@@ -36,4 +36,4 @@ chmod u=rwX,g=rX,o= /etc/asterisk/dongle.conf
 cp -n chan_dongle.so /usr/lib64/asterisk/modules/chan_dongle.so
 
 shutdown -r now
-</code>
+</pre>
