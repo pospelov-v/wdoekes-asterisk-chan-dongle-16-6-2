@@ -11,7 +11,7 @@ yum install epel-release -y
 yum install dnf -y
 dnf install epel-release
 dnf groupinstall "Development Tools"
-yum install git
+yum install git -y
 yum install sqlite sqlite-devel -y
 yum install asterisk16-devel -y
 
@@ -29,6 +29,9 @@ make install
 nano /etc/udev/rules.d/92-dongle.rules
 KERNEL=="ttyUSB*", MODE="0666", OWNER="asterisk", GROUP="dialout"
 
+yum install git -y
+git clone https://github.com/pospelov-v/wdoekes-asterisk-chan-dongle-16-6-2
+cd wdoekes-asterisk-chan-dongle-16-6-2/
 cp -n etc/dongle.conf /etc/asterisk/dongle.conf
 chown asterisk:asterisk /etc/asterisk/dongle.conf
 chmod u=rwX,g=rX,o= /etc/asterisk/dongle.conf
